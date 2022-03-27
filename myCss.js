@@ -1,11 +1,14 @@
-
-
+const string = `/* 你好，我叫YT,
+* 接下来我用CSS的方式演示太极图的生成过程
+* 首先创建一个div，将其变为圆形，然后通过提升黑色border-bottom
+* 像素的思路构造出黑白分界：
+*/
 .yinYang{
     width: 600px;
     height: 600px;
+    border-style: solid;
     background: #fff;
     border-color: #000;
-    border-style: solid;
     border-width: 10px 10px 300px 10px;
     border-radius: 100%;
     position: absolute;
@@ -13,7 +16,7 @@
     transform: scale(0.65);
 
 }
-
+/*然后，通过伪元素before和after做出‘阴鱼’：*/
 .yinYang::before{
     content: '';
     width: 290px;
@@ -26,7 +29,7 @@
     border:110px solid #000;
     transform: translateY(-50%);
 }
-
+/*接着，通过伪元素after做出‘阳鱼’：*/
 .yinYang::after{
     content: '';
     width: 290px;
@@ -39,9 +42,7 @@
     border:110px solid #fff;
     transform: translateY(-50%);
 }
-
-
-
+/*接下来通过大小div叠加构建出八卦的外沿：*/
 .bg-black{
     width:600px;
     height: 200px;
@@ -103,9 +104,7 @@
     left: 0;
     bottom: -190px;
 }
-
-
-
+/*快要成功了！现在添加八卦的八个卦象*/
 .line{
     width: 90px;
     border-left: 5px solid transparent;
@@ -171,7 +170,7 @@
 .side:nth-child(8){
     transform: rotate(315deg) translateY(-270px);
 }
-
+/*利用伪元素为每个卦象进行点缀，精确卦象的形态：*/
 .split-line::before{
     content: '';
     width: 8px;
@@ -183,7 +182,7 @@
     margin-left: -4px;
     top: -12px;
 }
-
+/*成功了！加上animation动画让它动起来吧！*/
 @keyframes yinYangRotate {
     from{
         transform: scale(0.65) rotate(0deg);
@@ -197,4 +196,6 @@
 
 .yinYang{
     animation: yinYangRotate 10s infinite linear;
-}
+}`
+
+export default string;

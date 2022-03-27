@@ -1,0 +1,40 @@
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.box{
+    width: 800px;
+    height: 800px;
+    background: transparent;
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#html{
+    width: 50vw;
+}
+
+#yinYangWrapper{
+
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+#buttons{
+    position: fixed;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 15;
+    display: flex;
+}
+
+#buttons>button{
+    margin-left: 10px;
+}
